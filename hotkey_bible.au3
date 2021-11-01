@@ -79,17 +79,17 @@ Func SayText($text)
 
     ;~ MsgBox($MB_SYSTEMMODAL, "", "SAY TEXT: " & $text)
 
-    Sleep(300)
+    Sleep(100)
 
     ; move to chatbox
     SafeSend('{ENTER}')
     Sleep(100)
 
     SafeSend($text)
-    Sleep(100)
+    ;~ Sleep(100)
 
     SafeSend('{ENTER}')
-    ;~ Sleep(100)
+    Sleep(100)
 
 EndFunc
 
@@ -118,7 +118,7 @@ Func RunHotKeys()
             "85H", "86H", "87H", "90", "91", "A0", "A1", "A2", "A3", "A4", "A5"]
     $dll = DllOpen("user32.dll")
     While 1
-        Sleep(100)
+        Sleep(1)
         For $y = 1 To $s_keys[0]
             If _IsPressed ($s_keys[$y], $dll) Then
                 If $s_keys[$y] == "70" Then ; F1
