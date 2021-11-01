@@ -11,6 +11,9 @@ Global $LineNum = 0
 $dll = 0
 
 
+Opt("SendKeyDelay", 0)
+Opt("SendKeyDownDelay", 0)
+
 Func _Exit()
     FileClose($ChosenBibleFile)
     DllClose($dll)
@@ -67,6 +70,8 @@ EndFunc
 
 
 Func SayText($text)
+    Opt("SendKeyDelay", 0)
+    Opt("SendKeyDownDelay", 0)
     If NOT WinActive("[CLASS:RiotWindowClass]") Then
         WinActivate("[CLASS:RiotWindowClass]", "")
         ;~ Return 0
@@ -74,17 +79,17 @@ Func SayText($text)
 
     ;~ MsgBox($MB_SYSTEMMODAL, "", "SAY TEXT: " & $text)
 
-    Sleep(500)
+    Sleep(300)
 
     ; move to chatbox
     SafeSend('{ENTER}')
-    Sleep(200)
+    Sleep(100)
 
     SafeSend($text)
-    Sleep(200)
+    Sleep(100)
 
     SafeSend('{ENTER}')
-    Sleep(500)
+    ;~ Sleep(100)
 
 EndFunc
 
