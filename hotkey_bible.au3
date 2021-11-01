@@ -79,17 +79,20 @@ Func SayText($text)
 
     ;~ MsgBox($MB_SYSTEMMODAL, "", "SAY TEXT: " & $text)
 
-    Sleep(100)
+    Sleep(50)
 
     ; move to chatbox
     SafeSend('{ENTER}')
-    Sleep(100)
+    Sleep(30)
+
+    ;~ SafeSend('{ENTER}' & $text & '{ENTER}')
+    ;~ Sleep(100)  
 
     SafeSend($text)
-    ;~ Sleep(100)
+    Sleep(30)
 
     SafeSend('{ENTER}')
-    Sleep(100)
+    ;~ Sleep(100)
 
 EndFunc
 
