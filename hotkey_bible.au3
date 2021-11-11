@@ -26,10 +26,10 @@ Func GetRandomBibleChapter()
     Local $randomIndex = Random(1, $fileList[0], 1)
     Local $ChosenBibleChapter = $fileList[$randomIndex]
 
-    MsgBox(0,'',"CHOSEN BIBLE CHAPTER: " & $ChosenBibleChapter)
+    MsgBox(0,'',"CHOSEN BIBLE CHAPTER: " & $ChosenBibleChapter, 5)
 
     $chapterDir = "bin\bible\" & $ChosenBibleChapter
-    ;~ MsgBox(0,'',"CHAPTER DIR: " & $chapterDir)
+    ;~ MsgBox(0,'',"CHAPTER DIR: " & $chapterDir, 5)
 
     $ChosenBibleFile = FileOpen($chapterDir, 0)
 
@@ -42,7 +42,7 @@ Func WriteBibleVerse()
     $chosenLine = -1
     While 1
         If Not WinExists("[CLASS:RiotWindowClass]") Then
-            ExitLoop
+            _Exit()
         EndIf
 
         $LineNum = $LineNum + 1
